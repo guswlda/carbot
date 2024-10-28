@@ -1,0 +1,95 @@
+/* login CSS */
+
+/* 전체 배경과 중앙 정렬 */
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+}
+
+/* 로그인 박스 컨테이너 */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.login-box {
+  width: 360px;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
+}
+
+.login-box-text {
+  justify-content: space-around;
+}
+
+.login-box h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.corporate-login {
+  display: block;
+  margin-bottom: 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* 입력 필드 스타일 */
+input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+/* 도움 링크 스타일 */
+.help-links {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.help-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.help-links a:hover {
+  text-decoration: underline;
+}
+
+.signup-link {
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
+}
