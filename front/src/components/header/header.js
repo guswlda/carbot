@@ -1,6 +1,9 @@
 import React from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
+import Logo from '../../images/logo.png';
+import { GoHomeFill } from 'react-icons/go';
+import { MdOutlineLogin } from 'react-icons/md';
 
 const header = () => {
   return (
@@ -11,16 +14,16 @@ const header = () => {
         </Link>
       </div>
 
-      <div className="header-center">
-        <h1 className="logo">CARBOT</h1>
+      <div className="header-logo">
+        <img src={Logo} alt="Carbot Logo" className="logo" />
       </div>
 
       <div className="header-right">
         <Link to="/" className="header-link">
-          홈
+          <GoHomeFill className="small-icon" />
         </Link>
         <Link to="/login" className="header-link">
-          로그인
+          <MdOutlineLogin className="small-icon" />
         </Link>
       </div>
     </header>
