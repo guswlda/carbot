@@ -1,7 +1,7 @@
 /* footer.css */
 
 .footer {
-  background-color: #333;
+  background-color: #1c1c1c;
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -10,16 +10,14 @@
 
 .footer-logo {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 900;
   margin-bottom: 10px;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .footer-logo::after {
   content: '';
   display: block;
-  width: 60px;
-  height: 2px;
-  background-color: orange;
   margin: 5px auto 0;
 }
 
@@ -28,22 +26,17 @@
   color: #aaa;
 }
 
-.footer-links {
+.footer-text {
   margin-bottom: 5px;
-}
-
-.footer-links a {
   color: #aaa;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer-links a:hover {
-  color: white;
-  text-decoration: underline;
+  font-size: 12px;
 }
 
 .footer-additional {
   color: #aaa;
   font-size: 12px;
+}
+
+.logo-colored {
+  color: #ff4500;
 }
