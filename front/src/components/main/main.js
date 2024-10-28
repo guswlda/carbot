@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import './main.css';
-import Video from '../video/redcar.mp4';
+import Video from '../video/graycar.mp4';
 
 const Main = () => {
   return (
