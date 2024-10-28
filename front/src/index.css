@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', 'Noto Sans KR', 'sans-serif';
+  background-color: #f5f2f0;
+  color: #222;
+}
+
+.small-icon {
+  width: 24px;
+  height: 24px;
+}
