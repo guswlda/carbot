@@ -1,18 +1,36 @@
 const express = require('express');
 const pool = require('./database/database'); // database.js에서 pool 불러오기
-
 const app = express();
 const port = 8000;
+const session = require('express-session');
+const bodyParser = require('body-parser');
 
-app.get('/users', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM users'); // pool.query로 수정
-    res.json(result.rows);
-  } catch (err) {
-    console.error('Error fetching data from PostgreSQL', err);
-    res.status(500).send('Error fetching data');
-  }
-});
+app.use(bodyParser.json()); // JSON 요청을 처리하도록 body-parser 설정
+
+app.use(express.json()); // JSON 형식 요청을 파싱
+app.use(express.urlencoded({ extended: true })); // URL-encoded 형식 요청을 파싱
+
+app.use(
+  session({
+    secret: process.env.SECRET_KEY, // 비밀 키 설정
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 쿠키 유효 기간 (1일)
+  })
+);
+
+// app.get('/users', async (req, res) => {
+//   try {
+//     const result = await pool.query('SELECT * FROM customers'); // pool.query로 수정
+//     res.json(result.rows);
+//   } catch (err) {
+//     console.error('Error fetching data from PostgreSQL', err);
+//     res.status(500).send('Error fetching data');
+//   }
+// });
+
+app.use(require('./routes/auth/authRoutes'));
+app.use(require('./routes/user/userRoutes'));
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
