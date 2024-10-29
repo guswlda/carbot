@@ -7,20 +7,24 @@ import Login from './components/auth/login';
 import CarInfo from './components/carinfo/carInfo';
 import CarSelect from './components/carselect/carSelect';
 import Layout from './components/Layout';
+import CallbotIcon from './components/callbot/callbotIcon';
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        {/* Layout을 모든 페이지의 상위 컴포넌트로 설정 */}
-        <Route element={<Layout />}>
-          <Route path="/" element={<Main />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/carInfo" element={<CarInfo />} />
-          <Route path="/carSelect" element={<CarSelect />} />
-        </Route>
-      </Routes>
+      <div>
+        <Routes>
+          {/* Layout을 모든 페이지의 상위 컴포넌트로 설정 */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Main />} />
+            <Route path="/notification" element={<Notification />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/carInfo" element={<CarInfo />} />
+            <Route path="/carSelect" element={<CarSelect />} />
+          </Route>
+        </Routes>
+        <CallbotIcon />
+      </div>
     </Router>
   );
 };
