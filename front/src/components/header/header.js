@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../images/logo.png';
 import { MdOutlineLogin } from 'react-icons/md';
 
-const header = () => {
+const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
@@ -26,4 +26,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
