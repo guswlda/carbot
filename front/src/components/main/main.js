@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import './main.css';
-import Video from '../video/graycar.mp4';
-import Eximage from '../../images/1.PNG';
+import Video from '../../video/graycar.mp4';
+import Eximage from '../../images/genesis.png';
 import { Link } from 'react-router-dom';
 
 const Main = () => {
@@ -23,6 +23,7 @@ const Main = () => {
 
       {/* best-car section */}
       <section className="best-car">
+        <p className="bestcar-text">BEST CAR</p>
         <div className="container">
           <div className="card">
             <img src={Eximage} alt="포르쉐 마칸 22" />
