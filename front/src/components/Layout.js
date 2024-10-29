@@ -9,7 +9,7 @@ const Layout = () => {
     <div className="layout">
       <Header />
       <main>
-        <Outlet /> {/* Outlet을 통해 각 페이지의 콘텐츠가 렌더링됩니다 */}
+        <Outlet />
       </main>
       <Footer />
     </div>
