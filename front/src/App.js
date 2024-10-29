@@ -8,6 +8,7 @@ import Login from './components/auth/login';
 import CarInfo from './components/carinfo/carInfo';
 import CarSelect from './components/carselect/carSelect';
 import Layout from './components/Layout';
+import CallbotIcon from './components/callbot/callbotIcon';
 
 const App = () => {
   return (

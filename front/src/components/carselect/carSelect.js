@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './carSelect.css';
 import { Link } from 'react-router-dom';
 import Eximg from '../../images/genesis.png';
@@ -6,6 +6,11 @@ import Eximg from '../../images/genesis.png';
 const CarSelect = () => {
   const [selectedManufacturer, setSelectedManufacturer] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
+
+  // 페이지 로드 시 스크롤을 상단으로 이동
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleManufacturerChange = (event) => {
     setSelectedManufacturer(event.target.value);
@@ -43,19 +48,25 @@ const CarSelect = () => {
           <div className="car-card">
             <img src={Eximg} alt="포르쉐 마칸 22" />
             <p>모델명: 포르쉐 마칸 22</p>
-            <button className="details-button">자세히 보기</button>
+            <Link to="/carInfo" className="main-links">
+              <button className="details-button">자세히 보기</button>
+            </Link>
           </div>
 
           <div className="car-card">
             <img src={Eximg} alt="포르쉐 마칸" />
             <p>모델명: 포르쉐 마칸</p>
-            <button className="details-button">자세히 보기</button>
+            <Link to="/carInfo" className="main-links">
+              <button className="details-button">자세히 보기</button>
+            </Link>
           </div>
 
           <div className="car-card">
             <img src={Eximg} alt="GV80 Coupe" />
             <p>Model: GV80 coupe</p>
-            <button className="details-button">자세히 보기</button>
+            <Link to="/carInfo" className="main-links">
+              <button className="details-button">자세히 보기</button>
+            </Link>
           </div>
         </div>
       </div>

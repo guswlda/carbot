@@ -13,9 +13,11 @@ const Header = () => {
         </Link>
       </div>
 
-      <Link to="/" className="header-logo">
-        <img src={Logo} alt="Carbot Logo" className="logo" />
-      </Link>
+      <div className="header-logo">
+        <Link to="/">
+          <img src={Logo} alt="Carbot Logo" className="logo" />
+        </Link>
+      </div>
 
       <div className="header-right">
         <Link to="/login" className="header-link">
