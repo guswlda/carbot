@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 dotenv.config();
 
 // 회원 가입
-exports.signUp = async (req, res) => {
+const signUp = async (req, res) => {
   try {
     const hash = await bcrypt.hash(req.body.customer_pw, salt); // 비밀번호 해시 생성
 
@@ -41,7 +41,7 @@ exports.signUp = async (req, res) => {
 };
 
 // 로그인
-exports.login = async (req, res) => {
+const login = async (req, res) => {
   const { customer_id, customer_pw } = req.body;
 
   try {
@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
 };
 
 // 로그 아웃
-exports.logout = async (req, res) => {
+const logout = async (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ message: 'Logout failed' });
@@ -79,7 +79,7 @@ exports.logout = async (req, res) => {
 };
 
 // 아이디 찾기
-exports.findId = async (req, res) => {
+const findId = async (req, res) => {
   const { customer_name, customer_email } = req.body;
 
   if (!customer_name || !customer_email) {
@@ -232,4 +232,13 @@ const updatePassword = async (req, res) => {
   }
 };
 
-module.exports = { emailAuth, verifyNumber, verifyUser, updatePassword };
+module.exports = {
+  signUp, // 회원가입 함수
+  login, // 로그인 함수
+  logout, // 로그아웃 함수
+  findId, // 아이디 찾기 함수
+  emailAuth, // 이메일 인증 함수
+  verifyNumber, // 인증번호 확인 함수
+  verifyUser, // 비밀번호 찾기 전 아이디 이메일 확인 함수
+  updatePassword, // 비밀번호 업데이트 함수
+};
