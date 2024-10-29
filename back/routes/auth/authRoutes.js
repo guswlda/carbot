@@ -1,4 +1,14 @@
 const router = require('express').Router();
-const { getCarType } = require('../controllers/getData');
+const {
+  emailAuth,
+  verifyNumber,
+  updatePassword,
+  verifyUser,
+} = require('../../controllers/auth/authController');
 
-router.get('/get_car_type', getCarType);
+router.post('/send_email', emailAuth);
+router.post('/verify_email', verifyNumber);
+router.post('/update_pass', updatePassword);
+router.post('/verify_user', verifyUser);
+
+module.exports = router;
