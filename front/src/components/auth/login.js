@@ -1,33 +1,48 @@
-// login.js
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
+  const [isDealerLogin, setIsDealerLogin] = useState(false);
+
+  const toggleLoginMode = () => {
+    setIsDealerLogin(!isDealerLogin);
+  };
+
   return (
-    <div className="page-container">
-      {/* Login Box */}
-      <section className="login-container">
-        <div className="login-box">
-          <div className="login-box-text">
-            <h1>로그인</h1>
-            <a href="#" className="corporate-login">
-              딜러 로그인
+    <div className='page-container'>
+      <section className='login-container'>
+        <div className='login-box'>
+          <div className='login-box-text'>
+            <h1>{isDealerLogin ? '딜러 로그인' : '로그인'}</h1>
+            <a href='#' className='corporate-login' onClick={toggleLoginMode}>
+              {isDealerLogin ? '개인 로그인' : '딜러 로그인'}
             </a>
           </div>
 
-          {/* Input Fields */}
-          <input type="text" placeholder="아이디 입력" />
-          <input type="password" placeholder="비밀번호 입력" />
-          <button>로그인</button>
+          <div className='login-inputs'>
+            {isDealerLogin ? (
+              <>
+                <input type='text' placeholder='사원번호 입력' />
+                <input type='password' placeholder='비밀번호 입력' />
+              </>
+            ) : (
+              <>
+                <input type='text' placeholder='아이디 입력' />
+                <input type='password' placeholder='비밀번호 입력' />
+              </>
+            )}
+            <button>{isDealerLogin ? '딜러 로그인' : '로그인'}</button>
+          </div>
 
-          {/* Help Links */}
-          <div className="help-links">
-            <a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a>
+          <div className='help-links'>
+            <Link to='/findID'>아이디 찾기</Link> |{' '}
+            <Link to='/findPW'>비밀번호 찾기</Link>
             <p>
               회원이 아니신가요?{' '}
-              <a href="#" className="signup-link">
+              <Link to='/join' className='signup-link'>
                 회원가입
-              </a>
+              </Link>
             </p>
           </div>
         </div>
