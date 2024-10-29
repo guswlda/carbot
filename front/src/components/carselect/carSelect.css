@@ -6,7 +6,7 @@
   padding: 20px;
   margin-top: 60px; /* 헤더 아래 공간 확보 */
   margin-bottom: 60px; /* 푸터 위 공간 확보 */
-  height: 864px;
+  height: auto;
 }
 
 h2 {

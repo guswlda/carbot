@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './carSelect.css';
-import Header from '../header/header'; // Header 컴포넌트 가져오기
-import Footer from '../footer/footer'; // Footer 컴포넌트 가져오기
 import { Link } from 'react-router-dom';
 import Eximg from '../../images/genesis.png';
 
@@ -19,9 +17,6 @@ const CarSelect = () => {
 
   return (
     <div className="car-select-page">
-      {/* Header Section */}
-      <Header />
-
       {/* Main Content */}
       <div className="car-select-container">
         <h2>나에게 맞는 차량을 검색해 보세요!</h2>
@@ -64,9 +59,6 @@ const CarSelect = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer Section */}
-      <Footer />
     </div>
   );
 };

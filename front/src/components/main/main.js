@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../header/header';
-import Footer from '../footer/footer';
 import './main.css';
 import Video from '../../video/graycar.mp4';
 import Eximage from '../../images/genesis.png';
@@ -9,11 +7,6 @@ import { Link } from 'react-router-dom';
 const Main = () => {
   return (
     <div className="main-container">
-      {/* header section */}
-      <header className="header">
-        <Header />
-      </header>
-
       {/* video section */}
       <section className="video-section">
         <video className="background-video" autoPlay loop muted>
@@ -60,11 +53,6 @@ const Main = () => {
         <Link to="/carSelect" className="main-links">
           <button>차량 조회</button>
         </Link>
-      </div>
-
-      {/* footer section */}
-      <div className="footer">
-        <Footer />
       </div>
     </div>
   );
