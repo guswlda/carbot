@@ -5,6 +5,7 @@ const port = 8000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
+<<<<<<< HEAD
 app.use(bodyParser.json()); // JSON 요청을 처리하도록 body-parser 설정
 
 app.use(express.json()); // JSON 형식 요청을 파싱
@@ -31,6 +32,22 @@ app.use(
 
 app.use(require('./routes/auth/authRoutes'));
 app.use(require('./routes/user/userRoutes'));
+=======
+app.use(express.json()); // json파싱
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/users', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM customers'); // pool.query로 수정
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching data from PostgreSQL', err);
+    res.status(500).send('Error fetching data');
+  }
+});
+>>>>>>> origin/main
+
+app.use(require('./routes/auth/authRoutes'));
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
