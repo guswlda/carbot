@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './components/main/main';
 import Notification from './components/notification/notification';
 import Login from './components/auth/login';
-
+import Join from './components/auth/join';
 import CarInfo from './components/carinfo/carInfo';
 import CarSelect from './components/carselect/carSelect';
 import Layout from './components/Layout';
-import CallbotIcon from './components/callbot/callbotIcon';
+import FindID from './components/auth/findID';
+import FindPW from './components/auth/findPW';
 
 const App = () => {
   return (
@@ -19,6 +20,9 @@ const App = () => {
           <Route path='/' element={<Main />} />
           <Route path='/notification' element={<Notification />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/join' element={<Join />} />
+          <Route path='/findID' element={<FindID />} />
+          <Route path='/findPW' element={<FindPW />} />
           <Route path='/carInfo' element={<CarInfo />} />
           <Route path='/carSelect' element={<CarSelect />} />
         </Route>
