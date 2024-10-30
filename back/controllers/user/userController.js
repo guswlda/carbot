@@ -1,6 +1,6 @@
 const database = require('../../database/database');
 
-exports.custom_car = async (req, res) => {
+const custom_car = async (req, res) => {
   try {
     const { customer_no, car_info_no, make, model, year, car_type } = req.body;
 
@@ -14,4 +14,8 @@ exports.custom_car = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+};
+
+module.exports = {
+  custom_car,
 };

@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 dotenv.config();
 
 // 회원 가입
-exports.signUp = async (req, res) => {
+const signUp = async (req, res) => {
   try {
     const hash = await bcrypt.hash(req.body.customer_pw, salt); // 비밀번호 해시 생성
 
@@ -40,8 +40,8 @@ exports.signUp = async (req, res) => {
   }
 };
 
-// 로그인
-exports.login = async (req, res) => {
+// 고객 로그인
+const customLogin = async (req, res) => {
   const { customer_id, customer_pw } = req.body;
 
   try {
@@ -52,23 +52,88 @@ exports.login = async (req, res) => {
     const user = result.rows[0];
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid ID or password' });
+      return res
+        .status(401)
+        .json({ message: '아이디와 비밀번호가 맞지 않습니다.' });
     }
 
     const match = await bcrypt.compare(customer_pw, user.customer_pw);
     if (!match) {
-      return res.status(401).json({ message: 'Invalid ID or password' });
+      return res
+        .status(401)
+        .json({ message: '아이디와 비밀번호가 맞지 않습니다.' });
     }
 
     req.session.userId = user.customer_id;
-    return res.json({ message: 'Login successful' });
+    return res.json({ message: '고객님 로그인 돼었습니다.' });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
-// 로그 아웃
-exports.logout = async (req, res) => {
+// 관리자 로그인
+const adminLogin = async (req, res) => {
+  const { admin_id, admin_pw } = req.body;
+
+  try {
+    const result = await database.query(
+      'SELECT * FROM admins WHERE admin_id = $1',
+      [admin_id]
+    );
+    const admin = result.rows[0];
+
+    if (!admin) {
+      return res
+        .status(401)
+        .json({ message: '아이디와 비밀번호가 맞지 않습니다.' });
+    }
+
+    // 평문 비밀번호 비교
+    if (admin_pw !== admin.admin_pw) {
+      return res
+        .status(401)
+        .json({ message: '아이디와 비밀번호가 맞지 않습니다.' });
+    }
+
+    req.session.userId = admin.admin_id;
+    return res.json({ message: '관리자님 로그인 돼었습니다.' });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+// 딜러 로그인
+const dealerLogin = async (req, res) => {
+  const { employee_number, dealer_pw } = req.body;
+
+  try {
+    const result = await database.query(
+      'SELECT * FROM dealers WHERE employee_number = $1',
+      [employee_number]
+    );
+    const dealer = result.rows[0];
+
+    if (!dealer) {
+      return res
+        .status(401)
+        .json({ message: '아이디와 비밀번호가 맞지 않습니다.' });
+    }
+
+    if (dealer_pw !== dealer.dealer_pw) {
+      return res
+        .status(401)
+        .json({ message: '아이디와 비밀번호가 맞지 않습니다.' });
+    }
+
+    req.session.userId = dealer.employee_number;
+    return res.json({ message: '영업팀 로그인 돼었습니다.' });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
+// 고객 로그 아웃
+const customLogout = async (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ message: 'Logout failed' });
@@ -79,7 +144,7 @@ exports.logout = async (req, res) => {
 };
 
 // 아이디 찾기
-exports.findId = async (req, res) => {
+const findId = async (req, res) => {
   const { customer_name, customer_email } = req.body;
 
   if (!customer_name || !customer_email) {
@@ -232,4 +297,15 @@ const updatePassword = async (req, res) => {
   }
 };
 
-module.exports = { emailAuth, verifyNumber, verifyUser, updatePassword };
+module.exports = {
+  signUp,
+  customLogin,
+  customLogout,
+  dealerLogin,
+  adminLogin,
+  findId,
+  emailAuth,
+  verifyNumber,
+  verifyUser,
+  updatePassword,
+};
