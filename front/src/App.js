@@ -10,6 +10,7 @@ import CarSelect from './components/carselect/carSelect';
 import Layout from './components/Layout';
 import FindID from './components/auth/findID';
 import FindPW from './components/auth/findPW';
+import Mypage from './components/mypage/mypage';
 
 const App = () => {
   return (
@@ -17,14 +18,15 @@ const App = () => {
       <Routes>
         {/* Layout을 모든 페이지의 상위 컴포넌트로 설정 */}
         <Route element={<Layout />}>
-          <Route path='/' element={<Main />} />
-          <Route path='/notification' element={<Notification />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/join' element={<Join />} />
-          <Route path='/findID' element={<FindID />} />
-          <Route path='/findPW' element={<FindPW />} />
-          <Route path='/carInfo' element={<CarInfo />} />
-          <Route path='/carSelect' element={<CarSelect />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/findID" element={<FindID />} />
+          <Route path="/findPW" element={<FindPW />} />
+          <Route path="/carInfo" element={<CarInfo />} />
+          <Route path="/carSelect" element={<CarSelect />} />
         </Route>
       </Routes>
     </Router>
