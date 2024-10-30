@@ -1,7 +1,7 @@
 .chatbot-icon {
   position: fixed;
-  bottom: 20px; /* 화면 하단에서 20px 떨어진 위치 */
-  right: 20px; /* 화면 오른쪽에서 20px 떨어진 위치 */
+  bottom: 40px; /* 화면 하단에서 20px 떨어진 위치 */
+  right: 40px; /* 화면 오른쪽에서 20px 떨어진 위치 */
   border-radius: 20%;
   padding: 10px;
   cursor: pointer;
