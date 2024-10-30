@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const {
   signUp,
-  login,
-  logout,
+  customLogin,
+  adminLogin,
+  dealerLogin,
+  customLogout,
   findId,
   emailAuth,
   verifyNumber,
@@ -11,8 +13,10 @@ const {
 } = require('../../controllers/auth/authController');
 
 router.post('/sign_up', signUp);
-router.post('/login', login);
-router.post('/logout', logout);
+router.post('/custom_login', customLogin);
+router.post('/admin_login', adminLogin);
+router.post('/dealer_login', dealerLogin);
+router.post('/custom_logout', customLogout);
 router.post('/find_id', findId);
 router.post('/send_email', emailAuth);
 router.post('/verify_email', verifyNumber);
