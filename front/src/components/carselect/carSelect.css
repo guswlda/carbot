@@ -1,0 +1,75 @@
+/* Main Content 스타일 */
+.car-select-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 60px; /* 헤더 아래 공간 확보 */
+  margin-bottom: 60px; /* 푸터 위 공간 확보 */
+  height: 854px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.dropdown {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #1c1c1c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.search-button:hover {
+  background-color: #666;
+}
+
+.car-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.car-card {
+  background-color: #e0e0e0;
+  width: 250px;
+  text-align: center;
+  padding: 10px;
+  width: 30%;
+}
+
+.car-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.details-button {
+  background-color: #1c1c1c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 0;
+}
+
+.details-button:hover {
+  background-color: #555;
+}

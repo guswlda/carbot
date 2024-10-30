@@ -3,8 +3,9 @@ import './header.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../images/logo.png';
 import { MdOutlineLogin } from 'react-icons/md';
+import { GoHomeFill } from 'react-icons/go';
 
-const header = () => {
+const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
@@ -13,9 +14,17 @@ const header = () => {
         </Link>
       </div>
 
-      <Link to="/" className="header-logo">
-        <img src={Logo} alt="Carbot Logo" className="logo" />
-      </Link>
+      <div className="header-logo">
+        <Link to="/">
+          <img src={Logo} alt="Carbot Logo" className="logo" />
+        </Link>
+      </div>
+
+      <div className="header-right">
+        <Link to="/mypage" className="header-link">
+          <GoHomeFill className="small-icon" />
+        </Link>
+      </div>
 
       <div className="header-right">
         <Link to="/login" className="header-link">
@@ -26,4 +35,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
