@@ -17,11 +17,12 @@ function MyPage() {
               <img src={Eximage} alt="GV80 coupe" />
               <div className="info">
                 <p>모델명: GV80 coupe</p>
-                <div className="proposal-button">
-                  <button onClick={() => setIsModalOpen(true)}>
-                    구매 상담 신청
-                  </button>
-                </div>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="proposal-button"
+                >
+                  구매 상담 신청
+                </button>
 
                 {isModalOpen && (
                   <Proposal onClose={() => setIsModalOpen(false)} />
@@ -32,11 +33,12 @@ function MyPage() {
               <img src={Eximage} alt="GV80 coupe" />
               <div className="info">
                 <p>모델명: GV80 coupe</p>
-                <div className="proposal-button">
-                  <button onClick={() => setIsModalOpen(true)}>
-                    구매 상담 신청
-                  </button>
-                </div>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="proposal-button"
+                >
+                  구매 상담 신청
+                </button>
 
                 {isModalOpen && (
                   <Proposal onClose={() => setIsModalOpen(false)} />
@@ -47,11 +49,12 @@ function MyPage() {
               <img src={Eximage} alt="GV80 coupe" />
               <div className="info">
                 <p>모델명: GV80 coupe</p>
-                <div className="proposal-button">
-                  <button onClick={() => setIsModalOpen(true)}>
-                    구매 상담 신청
-                  </button>
-                </div>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="proposal-button"
+                >
+                  구매 상담 신청
+                </button>
 
                 {isModalOpen && (
                   <Proposal onClose={() => setIsModalOpen(false)} />
