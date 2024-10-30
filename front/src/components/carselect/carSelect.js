@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './carSelect.css';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaRegBookmark, FaBookmark } from 'react-icons/fa'; // 북마크 아이콘 import
 import Eximg from '../../images/genesis.png';
 
 const CarSelect = () => {
   const [selectedManufacturer, setSelectedManufacturer] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
+  const [bookmarked, setBookmarked] = useState([false, false, false]); // 각 카드의 북마크 상태
 
-  // 페이지 로드 시 스크롤을 상단으로 이동
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,9 +23,22 @@ const CarSelect = () => {
     setSelectedModel(event.target.value);
   };
 
+  // 북마크 아이콘 클릭 핸들러
+  const handleBookmarkClick = (index) => {
+    const updatedBookmarks = [...bookmarked];
+    updatedBookmarks[index] = !updatedBookmarks[index];
+    setBookmarked(updatedBookmarks);
+
+    if (updatedBookmarks[index]) {
+      toast.success('저장되었습니다.', { autoClose: 1000 });
+    } else {
+      toast.info('삭제되었습니다.', { autoClose: 1000 });
+    }
+  };
+
   return (
     <div className="car-select-page">
-      {/* Main Content */}
+      <ToastContainer /> {/* ToastContainer 추가 */}
       <div className="car-select-container">
         <h2>나에게 맞는 차량을 검색해 보세요!</h2>
 
@@ -45,29 +61,26 @@ const CarSelect = () => {
 
         {/* Car List Section */}
         <div className="car-list">
-          <div className="car-card">
-            <img src={Eximg} alt="포르쉐 마칸 22" />
-            <p>모델명: 포르쉐 마칸 22</p>
-            <Link to="/carInfo" className="main-links">
-              <button className="details-button">자세히 보기</button>
-            </Link>
-          </div>
-
-          <div className="car-card">
-            <img src={Eximg} alt="포르쉐 마칸" />
-            <p>모델명: 포르쉐 마칸</p>
-            <Link to="/carInfo" className="main-links">
-              <button className="details-button">자세히 보기</button>
-            </Link>
-          </div>
-
-          <div className="car-card">
-            <img src={Eximg} alt="GV80 Coupe" />
-            <p>Model: GV80 coupe</p>
-            <Link to="/carInfo" className="main-links">
-              <button className="details-button">자세히 보기</button>
-            </Link>
-          </div>
+          {[Eximg, Eximg, Eximg].map((image, index) => (
+            <div key={index} className="card">
+              <img src={image} alt={`차량 모델 ${index + 1}`} />
+              <div className="info">
+                <div className="car-info">
+                  <p>모델명: 차량 모델 {index + 1}</p>
+                  {/* 북마크 아이콘 */}
+                  <span
+                    onClick={() => handleBookmarkClick(index)}
+                    className="bookmark-icon"
+                  >
+                    {bookmarked[index] ? <FaBookmark /> : <FaRegBookmark />}
+                  </span>
+                </div>
+                <Link to="/carInfo" className="main-links">
+                  <button className="details-button">자세히 보기</button>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
