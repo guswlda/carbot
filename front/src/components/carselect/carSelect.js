@@ -60,12 +60,12 @@ const CarSelect = () => {
         </div>
 
         {/* Car List Section */}
-        <div className="car-list">
+        <div className="select-car-list">
           {[Eximg, Eximg, Eximg].map((image, index) => (
-            <div key={index} className="card">
+            <div key={index} className="select-card">
               <img src={image} alt={`차량 모델 ${index + 1}`} />
-              <div className="info">
-                <div className="car-info">
+              <div className="select-info">
+                <div className="select-model-info">
                   <p>모델명: 차량 모델 {index + 1}</p>
                   {/* 북마크 아이콘 */}
                   <span
@@ -75,8 +75,8 @@ const CarSelect = () => {
                     {bookmarked[index] ? <FaBookmark /> : <FaRegBookmark />}
                   </span>
                 </div>
-                <Link to="/carInfo" className="main-links">
-                  <button className="details-button">자세히 보기</button>
+                <Link to="/carInfo" className="select-main-links">
+                  <button className="select-details-button">자세히 보기</button>
                 </Link>
               </div>
             </div>

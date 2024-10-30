@@ -4,10 +4,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import { FaRegBookmark } from 'react-icons/fa';
 import { FaBookmark } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
-import Video1 from '../../video/blackcar.mp4';
-import Video2 from '../../video/dealer.mp4';
-import Video3 from '../../video/graycar.mp4';
-import Video4 from '../../video/redcar.mp4';
+import Video4 from '../../video/blackcar.mp4';
+import Video3 from '../../video/dealer.mp4';
+import Video1 from '../../video/graycar.mp4';
+import Video2 from '../../video/redcar.mp4';
 import Eximage from '../../images/genesis.png';
 import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io';
@@ -59,7 +59,7 @@ const Main = () => {
       <ToastContainer />
       {/* video slider section */}
       <section className="video-section">
-        <div className="slider">
+        <div className="main-video-slider">
           {videos.map((video, index) => (
             <video
               key={index}
@@ -98,16 +98,17 @@ const Main = () => {
           ))}
         </div>
       </section>
+
       {/* best-car section */}
       <section className="best-car">
         <p className="bestcar-text">BEST CAR</p>
-        <div className="container">
+        <div className="main-car-container">
           {[Eximage, Eximage, Eximage].map((image, index) => (
-            <div key={index} className="card">
+            <div key={index} className="main-card">
               <img src={image} alt="차량 이미지" />
-              <div className="info">
+              <div className="main-info">
                 {/* 텍스트와 아이콘을 한 줄에 배치 */}
-                <div className="model-info">
+                <div className="main-model-info">
                   <p>모델명: 차량 모델 {index + 1}</p>
                   <span
                     onClick={() => handleBookmarkClick(index)}
@@ -117,7 +118,7 @@ const Main = () => {
                   </span>
                 </div>
                 <Link to="/carInfo" className="main-links">
-                  <button className="info-button">자세히 보기</button>
+                  <button className="main-info-button">자세히 보기</button>
                 </Link>
               </div>
             </div>
@@ -125,7 +126,7 @@ const Main = () => {
         </div>
       </section>
       {/* car-select section */}
-      <div className="select-button">
+      <div className="main-select-button">
         <Link to="/carSelect" className="main-links">
           <button>차량 조회</button>
         </Link>

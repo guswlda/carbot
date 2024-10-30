@@ -18,7 +18,7 @@
   position: relative;
 }
 
-.slider {
+.main-video-slider {
   width: 100%;
   height: 100%;
   position: relative;
@@ -105,14 +105,32 @@
   font-weight: bold;
 }
 
-.container {
+.main-car-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 100px;
 }
 
-.model-info {
+.main-card {
+  background-color: #e0e0e0;
+  width: 30%;
+  overflow: hidden;
+}
+
+.main-card img {
+  width: 100%;
+  height: auto;
+}
+
+.main-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-model-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,32 +148,14 @@
   color: #ff4500; /* 호버 시 색상 */
 }
 
-.card {
-  background-color: #e0e0e0;
-  width: 30%;
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-}
-
-.info {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .main-links {
   text-decoration: none;
   align-self: flex-end;
 }
 
 /* 자세히 보기 버튼 및 차량 조회 버튼 스타일 */
-.info-button,
-.select-button button {
+.main-info-button,
+.main-select-button button {
   position: relative;
   background-color: #000;
   color: white;
@@ -170,8 +170,8 @@
 }
 
 /* ::before 가상 요소로 슬라이드 배경 생성 */
-.info-button::before,
-.select-button button::before {
+.main-info-button::before,
+.main-select-button button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -184,30 +184,30 @@
 }
 
 /* hover 상태에서 슬라이드 효과 */
-.info-button:hover::before,
-.select-button button:hover::before {
+.main-info-button:hover::before,
+.main-select-button button:hover::before {
   left: 0; /* 슬라이드 배경을 왼쪽에서 오른쪽으로 이동 */
 }
 
-.info-button:hover,
-.select-button button:hover {
+.main-info-button:hover,
+.main-select-button button:hover {
   color: #000; /* 텍스트 색상 변경 */
 }
 
 /* 텍스트를 가상 요소 위에 올리기 위한 설정 */
-.info-button,
-.select-button button {
+.main-info-button,
+.main-select-button button {
   position: relative;
   z-index: 1; /* 텍스트가 가상 요소 위에 표시되도록 설정 */
 }
 
-.select-button {
+.main-select-button {
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
 
-.select-button button {
+.main-select-button button {
   background-color: #000;
   color: white;
   padding: 10px 30px;
@@ -216,6 +216,6 @@
   border-radius: 0;
 }
 
-.select-button button:hover {
+.main-select-button button:hover {
   background-color: #555;
 }
