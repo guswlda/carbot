@@ -32,7 +32,9 @@ const Login = () => {
                 <input type='password' placeholder='비밀번호 입력' />
               </>
             )}
-            <button>{isDealerLogin ? '딜러 로그인' : '로그인'}</button>
+            <button className='login-button'>
+              {isDealerLogin ? '딜러 로그인' : '로그인'}
+            </button>
           </div>
 
           <div className='help-links'>

@@ -9,20 +9,10 @@
   background-color: #f8f9fa;
 }
 
-/* 헤더와 푸터 */
-.header,
-.footer {
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-}
-
 /* 로그인 컨테이너 중앙 정렬 */
 .login-container {
   display: flex;
-  flex: 1;
+  flex: 0.6;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -33,7 +23,6 @@
   width: 500px;
   height: 600px;
   padding: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   border-radius: 8px;
   display: flex;
@@ -50,13 +39,13 @@
 
 .login-box h1 {
   font-size: 40px;
-  margin-bottom: 20px;
+  padding: 10px;
 }
 
 .corporate-login {
   display: inline; /* 인라인 요소로 유지 */
-  padding: 0;
-  margin: 0;
+  padding: 20px 0 0 0;
+  margin: 10px;
   cursor: pointer;
   text-decoration: underline;
   color: #000;
@@ -65,16 +54,16 @@
 
 /* 입력 필드 */
 input {
-  width: 100%;
+  width: 90%;
   padding: 13px 15px;
-  margin: 10px 0;
+  margin: 15px 0;
   border: 1px solid #ddd;
   font-size: 12px;
 }
 
 /* 로그인 버튼 */
-button {
-  width: 100%;
+.login-button {
+  width: 70%;
   padding: 15px;
   background-color: black;
   color: white;
