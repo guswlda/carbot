@@ -8,7 +8,6 @@
 .button-group {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .button-group button {
@@ -82,19 +81,12 @@
 }
 
 .proposal-button {
-  text-decoration: none;
-  align-self: flex-end;
-}
-
-.info-button {
-  background-color: #333;
+  width: 100%;
+  padding: 10px;
+  background: black;
   color: white;
   border: none;
-  padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.info-button:hover {
-  background-color: #555;
+  font-size: 16px;
+  margin-top: 10px;
 }
