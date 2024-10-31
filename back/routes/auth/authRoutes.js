@@ -4,7 +4,7 @@ const {
   customLogin,
   adminLogin,
   dealerLogin,
-  customLogout,
+  logoutAll,
   findId,
   emailAuth,
   verifyNumber,
@@ -16,7 +16,7 @@ router.post('/sign_up', signUp);
 router.post('/custom_login', customLogin);
 router.post('/admin_login', adminLogin);
 router.post('/dealer_login', dealerLogin);
-router.post('/custom_logout', customLogout);
+router.post('/all_logout', logoutAll);
 router.post('/find_id', findId);
 router.post('/send_email', emailAuth);
 router.post('/verify_email', verifyNumber);

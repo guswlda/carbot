@@ -21,7 +21,7 @@ const allUsers = async (req, res) => {
   try {
     // 고유id, 아이디, 이름, 이메일, 가입일자, 상태
     const result = await database.query(
-      `SELECT customer_no, customer_id, customer_name, customer_created_at, customer_status FROM customers`
+      `SELECT customer_no, customer_id, customer_name, created_at, status FROM customers`
     );
     res.status(200).json({ users: result.rows });
   } catch (error) {
@@ -48,28 +48,28 @@ const detailUser = async (req, res) => {
 };
 
 // 사용자 차량 보유 여부에 따른 정보 조회
-const mycarYN = async (req, res) => {
-  const { customer_no, customer_has_car } = req.query;
+const mycarTF = async (req, res) => {
+  const { customer_no, customer_car } = req.query;
 
   try {
-    if (customer_has_car === 'Y') {
+    if (customer_car === 'true') {
       // 고객이 차량을 소유하고 있는 경우 차량 정보 조회
       const carResult = await database.query(
-        `SELECT make, model, year, car_type, car_created_at 
+        `SELECT make, model, year, car_type, created_at 
          FROM customer_car WHERE customer_no = $1`,
         [customer_no]
       );
       res.status(200).json({ carInfo: carResult.rows });
-    } else if (customer_has_car === 'N') {
+    } else if (customer_car === 'false') {
       // 고객이 차량을 소유하지 않은 경우 선호도 정보 조회
       const preferenceResult = await database.query(
-        `SELECT preferred_make, preferred_type, preference_created_at 
-         FROM customer_preference WHERE customer_no = $1`,
+        `SELECT preferred_make, preferred_type, created_at 
+         FROM car_preference WHERE customer_no = $1`,
         [customer_no]
       );
       res.status(200).json({ preferenceInfo: preferenceResult.rows });
     } else {
-      res.status(400).json({ message: 'Invalid value for customer_has_car' });
+      res.status(400).json({ message: 'Invalid value for customer_car' });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -79,7 +79,7 @@ const mycarYN = async (req, res) => {
 // 공지사항 추가
 const addNotice = async (req, res) => {
   const { admin_id } = req.params; // URL에서 admin_id 추출
-  const { notice_title, notice_content, notice_status } = req.body;
+  const { notice_title, notice_content } = req.body;
 
   try {
     // 1. admin_id로 admin_no 조회
@@ -96,7 +96,7 @@ const addNotice = async (req, res) => {
 
     // 2. 공지사항 추가
     await database.query(
-      `INSERT INTO notice (admin_no, notice_title, notice_content, notice_created_at)
+      `INSERT INTO notice (admin_no, notice_title, notice_content, created_at)
        VALUES ($1, $2, $3, NOW())`,
       [admin_no, notice_title, notice_content]
     );
@@ -128,7 +128,7 @@ const reNotice = async (req, res) => {
     // 2. admin_no를 통해 공지사항 업데이트
     await database.query(
       `UPDATE notice 
-       SET notice_title = $1, notice_content = $2, notice_updated_at = NOW()
+       SET notice_title = $1, notice_content = $2, updated_at = NOW()
        WHERE admin_no = $3`,
       [notice_title, notice_content, admin_no]
     );
@@ -181,7 +181,7 @@ module.exports = {
   custom_car,
   allUsers,
   detailUser,
-  mycarYN,
+  mycarTF,
   addNotice,
   reNotice,
   deleteNotice,
